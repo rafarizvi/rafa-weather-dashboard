@@ -22,6 +22,7 @@ const daysArr = [day1El, day2El, day3El, day4El, day5El];
 
 const searchBtnEl = document.querySelector('#searchBtn');
 const usrInputEl = document.querySelector('#cityName');
+const searchHistEl = document.querySelector('.history');
 
 let cityName = 'nanuet';
 
@@ -32,6 +33,12 @@ inputCity = function(e) {
 
     if (inputVal) {
         localStorage.setItem('cityName', JSON.stringify(inputVal));
+        let savedItem = JSON.parse(localStorage.getItem('cityName'));
+        let newItem = document.createElement('button');
+        newItem.textContent = savedItem;
+        searchHistEl.appendChild(newItem);
+
+
         searchCity(inputVal);
 
         usrInputEl.value = '';
@@ -104,9 +111,9 @@ function displayWeather(get) {
     for (let i = 0; i < resArr.length; i++) {
         daysArr[i].children[0].innerHTML = (get.list[resArr[i]].dt_txt);
         daysArr[i].children[1].src = `https://openweathermap.org/img/wn/${get.list[resArr[i]].weather[0].icon}@2x.png`;
-        daysArr[i].children[2].children[0].textContent = `Temp: ${get.list[resArr[i]].main.temp}`;
-        daysArr[i].children[2].children[1].textContent = `Temp: ${get.list[resArr[i]].wind.speed}`;
-        daysArr[i].children[2].children[2].textContent = `Temp: ${get.list[resArr[i]].main.humidity}`;
+        daysArr[i].children[2].children[0].textContent = `Temp: ${get.list[resArr[i]].main.temp} °F`;
+        daysArr[i].children[2].children[1].textContent = `Wind: ${get.list[resArr[i]].wind.speed} MPH`;
+        daysArr[i].children[2].children[2].textContent = `Humidity: ${get.list[resArr[i]].main.humidity} %`;
 
     }
 
