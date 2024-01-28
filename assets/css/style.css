@@ -14,9 +14,26 @@
     font-size: 36px;
 }
 
-.display-container {
+.conainer-0 {
     display: flex;
-    border: solid red 3px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.container-1{
+    display: flex;
+    border: solid white 3px;
+    width: 380px;
+    height: 600px;
+}
+
+.today-container {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 3rem;
+    border: solid white 3px;
+    width: 1000px;
+    height: 300px;
 }
 
 .logo-img {
@@ -31,27 +48,27 @@
 
 .card {
     border: solid white 3px;
-    width: 300px;
+    
 }
 
 .small-cards {
     display: flex;
-    margin-top: 5%;
-    justify-content: space-evenly;
-}
+    justify-content: space-around;
+    padding-top: 1.3rem;
+    border: solid white 3px;
+    width: 1000px;
+    height: 300px;
+} 
 
 .small-card {
-    display: flex;
-    flex-direction: column;
-    width: 180px;
-    height: 200px;
-    border: solid 3px white;
-    text-align: center; 
+    border: solid white 3px;
+    width: 150px;
+    height: 250px;
 }
 
 .weather-icon2 {
-    width: 35%;
-    height: 35%;
+    scale: 70%;
+    padding: 0;
 }
 
 ul {
