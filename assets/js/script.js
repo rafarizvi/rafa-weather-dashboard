@@ -9,7 +9,16 @@
 // save location name in local storage.
 // when saved location is clicked, run the geocoding API function.
 
-let cityName = 'london';
+const todayEl = document.querySelector('.card-title');
+const todayEl2 = document.querySelector('.weather-icon');
+const day0El = document.querySelector('.day-0');
+const day1El = document.querySelector('.day-1');
+const day2El = document.querySelector('.day-2');
+const day3El = document.querySelector('.day-3');
+const day4El = document.querySelector('.day-4');
+const day5El = document.querySelector('.day-5');
+
+let cityName = 'nanuet';
 
 searchCity(cityName);
 
@@ -20,9 +29,12 @@ function searchCity(city) {
     .then(function(response) {
         if (response.ok) {
             response.json().then(function(data) {
-              console.log(data);
+             // console.log(data);
               let lat = (data[0].lat);
               let lon = (data[0].lon);
+
+              getWeather(lat, lon);
+              
              // console.log(`lattitude: ${lat} , longitude: ${lon}`);
             })
         } else {
@@ -31,7 +43,52 @@ function searchCity(city) {
     })
 }
 
+function getWeather(lattitude, longitude) {
+    const weatherUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${lattitude}&lon=${longitude}&units=imperial&appid=3c714b351bd071d5137b8a8f12fed03e`;
 
+    fetch(weatherUrl)
+      .then(function(response) {
+        if (response.ok) {
+            response.json().then(function(data) {
+                console.log(data);
+                displayWeather(data);
+            })
+        }
+      })
+}
+
+function displayWeather(get) {
+    let location = get.city.name;
+    let date = (get.list[0].dt_txt).split(' ');
+    let dateFormat = date[0].split('-');
+    let newDate = `${dateFormat[1]} - ${dateFormat[2]} - ${dateFormat[0]}`
+
+    let icon = get.list[0].weather[0].icon;
+    let temp = get.list[0].main.temp;
+    let wind = get.list[0].wind.speed;
+    let humid = get.list[0].main.humidity;
+
+    console.log(temp);
+    console.log(wind);
+    console.log(humid);
+    console.log(date);
+
+
+    todayEl.innerHTML = `${location} \u00A0\ ${newDate}`;
+    todayEl2.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+    day0El.children[0].textContent = `Temp: ${temp} °F`;
+    day0El.children[1].textContent = `Wind: ${wind} MPH`;
+    day0El.children[2].textContent = `Humidity: ${humid} %`;
+
+
+}
+
+// response = 40 arrays.
+// 8 times slots per day: 00, 3, 6, 9, 12, 15, 18, 21.
+// 8 arrays per day.
+// 0th array for current/todays weather. 
+// then every 8th array for next day. (8, 16, 24, 32, 40)
+// every 8th array from the bottom. (37, 29, 21, 13, 5)
 
 
 // searchCity();

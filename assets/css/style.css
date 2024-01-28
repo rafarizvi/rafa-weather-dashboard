@@ -7,3 +7,25 @@
     color: whitesmoke
 }
 
+.container-fluid {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    font-size: 36px;
+}
+
+.card {
+    display: flex;  
+}
+
+.small-cards {
+    display: flex;
+    margin-top: 300px;
+    width: 60%;
+    height: 250px;
+    justify-content: flex-end;
+}
+
+li {
+    display: flex;
+}
