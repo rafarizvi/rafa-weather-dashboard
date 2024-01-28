@@ -7,23 +7,55 @@
     color: whitesmoke
 }
 
-.container-fluid {
+.header-container {
     display: flex;
     justify-content: center;
     margin-top: 15px;
     font-size: 36px;
 }
 
-.card {
+.display-container {
+    display: flex;
+    border: solid red 3px;
+}
+
+.logo-img {
+    height: 70px;
+    width: 70px;
+}
+
+.title {
     display: flex;  
+    justify-content: space-around;
+}
+
+.card {
+    border: solid white 3px;
+    width: 300px;
 }
 
 .small-cards {
     display: flex;
-    margin-top: 300px;
-    width: 60%;
-    height: 250px;
-    justify-content: flex-end;
+    margin-top: 5%;
+    justify-content: space-evenly;
+}
+
+.small-card {
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+    height: 200px;
+    border: solid 3px white;
+    text-align: center; 
+}
+
+.weather-icon2 {
+    width: 35%;
+    height: 35%;
+}
+
+ul {
+    text-align: left; 
 }
 
 li {
