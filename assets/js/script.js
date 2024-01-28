@@ -20,9 +20,27 @@ const day5El = document.querySelector('#day-5');
 
 const daysArr = [day1El, day2El, day3El, day4El, day5El];
 
+const searchBtnEl = document.querySelector('#searchBtn');
+const usrInputEl = document.querySelector('#cityName');
+
 let cityName = 'nanuet';
 
-searchCity(cityName);
+inputCity = function(e) {
+    e.preventDefault();
+
+    const inputVal = usrInputEl.value.trim();
+
+    if (inputVal) {
+        localStorage.setItem('cityName', JSON.stringify(inputVal));
+        searchCity(inputVal);
+
+        usrInputEl.value = '';
+    } else {
+        alert ('Please enter a city name')
+    }
+}
+
+
 
 function searchCity(city) {
     const geoCodeUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=3c714b351bd071d5137b8a8f12fed03e`;
@@ -93,6 +111,8 @@ function displayWeather(get) {
     }
 
 }
+
+searchBtnEl.addEventListener('click', inputCity);
 
 // response = 40 arrays.
 // 8 times slots per day: 00, 3, 6, 9, 12, 15, 18, 21.

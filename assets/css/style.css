@@ -20,6 +20,29 @@
     margin-top: 10px;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0 auto 0 auto;
+    padding-top: 5%;
+    font-size: 24px;
+}
+
+form input {
+    height: 40px;
+    width: 200px;
+    margin: 10px;
+    font-size: 21px;
+}
+
+form button {
+    height: 35px;
+    width: 200px;
+    margin: 10px;
+    font-size: 18px;
+}
+
 .container-1{
     display: flex;
     border: solid white 3px;
@@ -48,6 +71,7 @@
 
 .card {
     border: solid white 3px;
+    padding-top: 0;
     
 }
 
@@ -64,6 +88,8 @@
     border: solid white 3px;
     width: 150px;
     height: 250px;
+    text-align: center;
+    
 }
 
 .weather-icon2 {
