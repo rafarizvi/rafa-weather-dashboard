@@ -31,14 +31,14 @@ form {
 
 form input {
     height: 40px;
-    width: 200px;
+    width: 300px;
     margin: 10px;
     font-size: 21px;
 }
 
 form button {
     height: 35px;
-    width: 200px;
+    width: 300px;
     margin: 10px;
     font-size: 18px;
 }

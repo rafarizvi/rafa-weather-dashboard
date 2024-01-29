@@ -24,19 +24,45 @@ const searchBtnEl = document.querySelector('#searchBtn');
 const usrInputEl = document.querySelector('#cityName');
 const searchHistEl = document.querySelector('.history');
 
-let cityName = 'nanuet';
+
+let savedCities = JSON.parse(localStorage.getItem('cityNames'));
+
+if (savedCities !== null) {
+    for (let i = 0; i < savedCities.length; i++) {
+        let newCity = document.createElement('button');
+        newCity.textContent = savedCities[i];
+        searchHistEl.appendChild(newCity);
+    }
+}
+
+
+let cityNamesArr;
+
+if (savedCities !== null) {
+    cityNamesArr = savedCities;
+} else {
+    cityNamesArr = [];
+}
+
 
 inputCity = function(e) {
     e.preventDefault();
-
+    
     const inputVal = usrInputEl.value.trim();
-
+    
     if (inputVal) {
-        localStorage.setItem('cityName', JSON.stringify(inputVal));
-        let savedItem = JSON.parse(localStorage.getItem('cityName'));
-        let newItem = document.createElement('button');
-        newItem.textContent = savedItem;
-        searchHistEl.appendChild(newItem);
+        if (cityNamesArr === null || !(cityNamesArr.includes(inputVal))) {
+            cityNamesArr.push(inputVal);
+            localStorage.setItem('cityNames', JSON.stringify(cityNamesArr));
+    
+            localStorage.setItem('cityName', JSON.stringify(inputVal));
+            let savedItem = JSON.parse(localStorage.getItem('cityName'));
+            let newItem = document.createElement('button');
+            newItem.textContent = savedItem;
+            searchHistEl.appendChild(newItem);
+        }
+
+        console.log(cityNamesArr);
 
 
         searchCity(inputVal);
