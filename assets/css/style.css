@@ -5,7 +5,7 @@
 body {
     background: rgb(0,171,205);
     background: radial-gradient(circle, rgba(0,171,205,1) 0%, rgba(15,72,158,1) 0%, rgba(136,93,89,1) 100%);
-
+    
     color: whitesmoke
 }
 
@@ -16,6 +16,12 @@ body {
     padding-bottom: 15px;
     font-size: 36px;
     background-color: rgba(144, 144, 144, 0.229);
+}
+
+.logo-img {
+    height: 75px;
+    width: 75px;
+    margin: -11px;
 }
 
 .conainer-0 {
@@ -49,27 +55,34 @@ form input {
 form button {
     height: 35px;
     width: 300px;
-    margin: 10px;
+    margin: 5px;
     font-size: 18px;
     border-radius: 18px;
+    background-color: rgb(18, 205, 202);
 }
 
-.list-div {
-   
+#clearBtn {
+    background-color: rgba(224, 54, 105, 0.619);
+}
+
+.list-div { 
     height: 35px;
     width: 300px;
     margin-left: -9px;
 }
 
+
+
 form li {
     font-size: 26px;
-    font-weight: bold;
-    padding-left: 50%;
+    font-style:inherit;
+    margin-bottom: 5px;
+    padding-left: 10%;
     height: 38px;
     width: 296px;
     border: solid rgb(182, 182, 182) 3px;
     border-radius: 18px;
-    background-color: rgb(31, 190, 187);
+    background-color: rgba(31, 190, 187, 0.842);
     color: rgb(55, 55, 55);
 }
 
@@ -93,24 +106,21 @@ form li {
     border-radius: 60px;
 }
 
-.logo-img {
-    height: 75px;
-    width: 75px;
-    margin: -11px;
+.today-container h4 {
+    font-size: 20px;
+    margin-bottom: 30px;
 }
 
-/* .title {
-    display: flex;  
-    flex-direction: column;
+.today-container img {
+    margin-top: -40px;
+    margin-left: 20%;
+}
 
-} */
-
-/* .card {
-    border: solid rgb(70, 46, 46) 3px;
-    padding-top: 0;
-    background-color: rgb(82, 111, 137);
-    
-} */
+.today-container ul {
+    margin-top: -18px;
+    font-size: 18px;
+    line-height: 1.7;
+}
 
 .small-cards {
     display: flex;
@@ -127,6 +137,22 @@ form li {
     height: 250px;
     text-align: center;
     border-radius: 50px;  
+}
+
+.small-card h5 {
+    padding-top: 10px;
+    padding-bottom: -10px;
+    font-size: 16px;
+}
+
+.small-card ul {
+    margin-top: -20px;
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+.small-card img {
+    margin-top: -40px;
 }
 
 .weather-icon2 {

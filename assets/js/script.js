@@ -21,8 +21,11 @@ const day5El = document.querySelector('#day-5');
 const daysArr = [day1El, day2El, day3El, day4El, day5El];
 
 const searchBtnEl = document.querySelector('#searchBtn');
+const clearBtnEl = document.querySelector('#clearBtn');
+
 const usrInputEl = document.querySelector('#cityName');
 const searchHistEl = document.querySelector('.history');
+const listDivEl = document.querySelector('.list-div');
 
 
 let savedCities = JSON.parse(localStorage.getItem('cityNames'));
@@ -33,6 +36,13 @@ if (savedCities !== null) {
     cityNamesArr = savedCities;
 } else {
     cityNamesArr = [];
+}
+
+
+// clearbtn
+function clearCities() { 
+        searchHistEl.innerHTML = '';
+        localStorage.removeItem('cityNames');
 }
 
 
@@ -135,7 +145,8 @@ function displayWeather(get) {
     const resArr = [8, 16, 24, 32, 39];
 
     for (let i = 0; i < resArr.length; i++) {
-        daysArr[i].children[0].innerHTML = (get.list[resArr[i]].dt_txt);
+        let futureDate = (get.list[resArr[i]].dt_txt).split(' ')[0].split('-');
+        daysArr[i].children[0].innerHTML = `${futureDate[1]}-${futureDate[2]}-${futureDate[0]}`;
         daysArr[i].children[1].src = `https://openweathermap.org/img/wn/${get.list[resArr[i]].weather[0].icon}@2x.png`;
         daysArr[i].children[2].children[0].textContent = `Temp: ${get.list[resArr[i]].main.temp} °F`;
         daysArr[i].children[2].children[1].textContent = `Wind: ${get.list[resArr[i]].wind.speed} MPH`;
@@ -148,3 +159,5 @@ function displayWeather(get) {
 displayCities(); // displays items from local storage.
 
 searchBtnEl.addEventListener('click', inputCity);
+clearBtnEl.addEventListener('click', clearCities);
+
