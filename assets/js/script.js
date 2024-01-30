@@ -27,15 +27,6 @@ const searchHistEl = document.querySelector('.history');
 
 let savedCities = JSON.parse(localStorage.getItem('cityNames'));
 
-if (savedCities !== null) {
-    for (let i = 0; i < savedCities.length; i++) {
-        let newCity = document.createElement('button');
-        newCity.textContent = savedCities[i];
-        searchHistEl.appendChild(newCity);
-    }
-}
-
-
 let cityNamesArr;
 
 if (savedCities !== null) {
@@ -45,7 +36,23 @@ if (savedCities !== null) {
 }
 
 
-inputCity = function(e) {
+function displayCities() {
+    if (savedCities !== null) {
+        for (let i = 0; i < savedCities.length; i++) {
+            let newCity = document.createElement('li');
+            newCity.classList.add('saved');
+            //newCity.setAttribute('data-index', i);
+            newCity.textContent = savedCities[i];
+            newCity.addEventListener('click', function() {
+                searchCity(savedCities[i]);
+            })
+            searchHistEl.appendChild(newCity);
+        } 
+    }
+}
+
+
+function inputCity(e) {
     e.preventDefault();
     
     const inputVal = usrInputEl.value.trim();
@@ -54,28 +61,27 @@ inputCity = function(e) {
         if (cityNamesArr === null || !(cityNamesArr.includes(inputVal))) {
             cityNamesArr.push(inputVal);
             localStorage.setItem('cityNames', JSON.stringify(cityNamesArr));
-    
-            localStorage.setItem('cityName', JSON.stringify(inputVal));
-            let savedItem = JSON.parse(localStorage.getItem('cityName'));
-            let newItem = document.createElement('button');
-            newItem.textContent = savedItem;
+            
+            let newItem = document.createElement('li');
+            newItem.textContent = inputVal;
+            newItem.addEventListener('click', function() {
+                searchCity(inputVal);
+            });
+
             searchHistEl.appendChild(newItem);
         }
-
-        console.log(cityNamesArr);
-
-
+        
         searchCity(inputVal);
-
         usrInputEl.value = '';
+
     } else {
         alert ('Please enter a city name')
     }
 }
 
 
-
 function searchCity(city) {
+    
     const geoCodeUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=3c714b351bd071d5137b8a8f12fed03e`;
 
     fetch(geoCodeUrl) 
@@ -88,7 +94,6 @@ function searchCity(city) {
 
               getWeather(lat, lon);
               
-             // console.log(`lattitude: ${lat} , longitude: ${lon}`);
             })
         } else {
             alert(`Error: ${response.statusText}`); // change later.
@@ -121,11 +126,6 @@ function displayWeather(get) {
     let wind = get.list[0].wind.speed;
     let humid = get.list[0].main.humidity;
 
-    // console.log(temp);
-    // console.log(wind);
-    // console.log(humid);
-    // console.log(date);
-
     todayEl.innerHTML = `${location} \u00A0\ ${newDate}`;
     todayEl2.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
     day0El.children[0].textContent = `Temp: ${temp} °F`;
@@ -145,15 +145,6 @@ function displayWeather(get) {
 
 }
 
+displayCities(); // displays items from local storage.
+
 searchBtnEl.addEventListener('click', inputCity);
-
-// response = 40 arrays.
-// 8 times slots per day: 00, 3, 6, 9, 12, 15, 18, 21.
-// 8 arrays per day.
-// 0th array for current/todays weather. 
-// then every 8th array for next day. (8, 16, 24, 32, 39)
-// every 8th array from the bottom. (37, 29, 21, 13, 5)
-// 35, 19, 11, 3, 0
-
-
-// searchCity();
