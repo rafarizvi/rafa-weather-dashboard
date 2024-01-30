@@ -2,22 +2,27 @@
     box-sizing: border-box;
 }
 
-* {
-    background-color: black;
+body {
+    background: rgb(0,171,205);
+    background: radial-gradient(circle, rgba(0,171,205,1) 0%, rgba(15,72,158,1) 0%, rgba(136,93,89,1) 100%);
+
     color: whitesmoke
 }
 
 .header-container {
     display: flex;
     justify-content: center;
-    margin-top: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     font-size: 36px;
+    background-color: rgba(144, 144, 144, 0.229);
 }
 
 .conainer-0 {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 20px;
+    /* flex-direction: column; */
 }
 
 form {
@@ -26,14 +31,19 @@ form {
     text-align: center;
     margin: 0 auto 0 auto;
     padding-top: 5%;
-    font-size: 24px;
+    font-size: 24px;   
+    margin-left: 20px;
 }
 
+form label {
+    font-size: 26px;
+}
 form input {
     height: 40px;
     width: 300px;
     margin: 10px;
     font-size: 21px;
+    border-radius: 18px;
 }
 
 form button {
@@ -41,60 +51,86 @@ form button {
     width: 300px;
     margin: 10px;
     font-size: 18px;
+    border-radius: 18px;
 }
+
+.list-div {
+   
+    height: 35px;
+    width: 300px;
+    margin-left: -9px;
+}
+
+form li {
+    font-size: 26px;
+    font-weight: bold;
+    padding-left: 50%;
+    height: 38px;
+    width: 296px;
+    border: solid rgb(182, 182, 182) 3px;
+    border-radius: 18px;
+    background-color: rgb(31, 190, 187);
+    color: rgb(55, 55, 55);
+}
+
 
 .container-1{
     display: flex;
-    border: solid white 3px;
+    border-right: solid rgb(226, 218, 132) 1px;
     width: 380px;
     height: 600px;
+    
 }
 
 .today-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     padding-top: 3rem;
-    border: solid white 3px;
-    width: 1000px;
+    border: solid rgb(182, 182, 182) 3px;
+    width: 500px;
     height: 300px;
+    margin-left: 270px;
+    border-radius: 60px;
 }
 
 .logo-img {
-    height: 70px;
-    width: 70px;
+    height: 75px;
+    width: 75px;
+    margin: -11px;
 }
 
-.title {
+/* .title {
     display: flex;  
-    justify-content: space-around;
-}
+    flex-direction: column;
 
-.card {
-    border: solid white 3px;
+} */
+
+/* .card {
+    border: solid rgb(70, 46, 46) 3px;
     padding-top: 0;
+    background-color: rgb(82, 111, 137);
     
-}
+} */
 
 .small-cards {
     display: flex;
     justify-content: space-around;
     padding-top: 1.3rem;
-    border: solid white 3px;
+    margin-left: 20px;
     width: 1000px;
     height: 300px;
 } 
 
 .small-card {
-    border: solid white 3px;
-    width: 150px;
+    border: solid rgb(182, 182, 182) 3px;
+    width: 180px;
     height: 250px;
     text-align: center;
-    
+    border-radius: 50px;  
 }
 
 .weather-icon2 {
     scale: 70%;
-    padding: 0;
 }
 
 ul {

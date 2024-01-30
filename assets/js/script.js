@@ -119,7 +119,7 @@ function displayWeather(get) {
     let location = get.city.name;
     let date = (get.list[0].dt_txt).split(' ');
     let dateFormat = date[0].split('-');
-    let newDate = `${dateFormat[1]} - ${dateFormat[2]} - ${dateFormat[0]}`
+    let newDate = `${dateFormat[1]}-${dateFormat[2]}-${dateFormat[0]}`
 
     let icon = get.list[0].weather[0].icon;
     let temp = get.list[0].main.temp;
