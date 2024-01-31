@@ -1,0 +1,158 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 1380px;
+    margin: auto;
+    color: whitesmoke;
+    background: rgb(0,171,205);
+    background: radial-gradient(circle, rgba(0,171,205,1) 0%, rgba(15,72,158,1) 0%, rgba(136,93,89,1) 100%);
+}
+
+/* styles nav bar */
+.header-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 36px;
+    background-color: rgba(144, 144, 144, 0.229);
+}
+
+.logo-img {
+    height: 75px;
+    width: 75px;
+    margin: -11px;
+}
+
+/* styles input fields and buttons */
+form {
+    display: flex;
+    text-align: center;
+    padding-top: 2%;
+    font-size: 24px;   
+}
+
+form label {
+    font-size: 26px;
+}
+form input {
+    height: 40px;
+    width: 250px;
+    margin: 5px;
+    padding-left: 15px;
+    font-size: 21px;
+    border-radius: 18px;
+}
+
+form button {
+    height: 35px;
+    width: 200px;
+    margin: 5px;
+    font-size: 18px;
+    border-radius: 18px;
+    background-color: rgb(18, 205, 202);
+}
+
+#clearBtn {
+    background-color: rgba(224, 54, 105, 0.619);
+}
+
+/* styles the appended saved locations */
+form li {
+    display: flex;
+    display: inline-flex;
+    margin-right: 5px;
+    font-size: 22px;
+    font-style:inherit;
+    margin-bottom: 5px;
+    padding-left: 2%;
+    height: 34px;
+    width: 200px;
+    border: solid rgb(182, 182, 182) 3px;
+    border-radius: 18px;
+    background-color: rgba(31, 190, 187, 0.842);
+    color: rgb(55, 55, 55);
+}
+
+/* styles the appended saved locations */
+form ul {
+    margin-left: -34px;
+}
+
+/* styles the form elements */
+.container-1 {
+    display: flex;
+    flex-direction: column;
+}
+
+/* current weather info container */
+.today-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid rgb(182, 182, 182) 3px;
+    max-width: 1380px;
+    border-radius: 60px;
+}
+
+.today-container h4 {
+    font-size: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.today-container img {
+    margin-top: -40px;
+    margin-left: 20%;
+}
+
+.today-container ul {
+    margin-top: -18px;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+/* styles the 5-day weather cards */
+.small-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 1.3rem;
+} 
+
+.small-card {
+    border: solid rgb(182, 182, 182) 3px;
+    width: 180px;
+    height: 250px;
+    text-align: center;
+    border-radius: 50px; 
+    margin-bottom: 5px; 
+}
+
+.small-card h5 {
+    padding-top: 10px;
+    padding-bottom: -10px;
+    font-size: 16px;
+}
+
+.small-card ul {
+    margin-top: -20px;
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+.small-card img {
+    margin-top: -40px;
+}
+
+.weather-icon2 {
+    scale: 70%;
+}
+
+li {
+    display: flex;
+}
+
