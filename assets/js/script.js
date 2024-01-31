@@ -95,7 +95,7 @@ function inputCity(e) {
 // passes lattitude and longitude values to getWeather function.
 function searchCity(city) {
     
-    const geoCodeUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=3c714b351bd071d5137b8a8f12fed03e`;
+    const geoCodeUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=3c714b351bd071d5137b8a8f12fed03e`;
 
     fetch(geoCodeUrl) 
     .then(function(response) {
@@ -116,7 +116,7 @@ function searchCity(city) {
 
 // inputs the lattitude and longitudethe to the Openweather weather API to retrieve weather info. 
 function getWeather(lattitude, longitude) {
-    const weatherUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${lattitude}&lon=${longitude}&units=imperial&appid=3c714b351bd071d5137b8a8f12fed03e`;
+    const weatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lattitude}&lon=${longitude}&units=imperial&appid=3c714b351bd071d5137b8a8f12fed03e`;
 
     fetch(weatherUrl)
       .then(function(response) {
