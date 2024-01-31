@@ -9,6 +9,7 @@
 // save location name in local storage.
 // when saved location is clicked, run the geocoding API function.
 
+// selects classes and ids for required html elements.
 const todayEl = document.querySelector('.card-title');
 const todayEl2 = document.querySelector('.weather-icon');
 const day0El = document.querySelector('.day-0');
@@ -27,9 +28,10 @@ const usrInputEl = document.querySelector('#cityName');
 const searchHistEl = document.querySelector('.history');
 const listDivEl = document.querySelector('.list-div');
 
-
+// pulls saved location from local storage.
 let savedCities = JSON.parse(localStorage.getItem('cityNames'));
 
+// defines array containing locations and initializes based on the if statement below.
 let cityNamesArr;
 
 if (savedCities !== null) {
@@ -39,13 +41,13 @@ if (savedCities !== null) {
 }
 
 
-// clearbtn
+// clears appended locations.
 function clearCities() { 
         searchHistEl.innerHTML = '';
         localStorage.removeItem('cityNames');
 }
 
-
+// appends saved locations to the page upon page-load.
 function displayCities() {
     if (savedCities !== null) {
         for (let i = 0; i < savedCities.length; i++) {
@@ -60,7 +62,8 @@ function displayCities() {
     }
 }
 
-
+// gets user input, saves to local storage and appends value to page with a 'click' event listener.
+// sends input value to searchCity function.
 function inputCity(e) {
     e.preventDefault();
     
@@ -88,7 +91,8 @@ function inputCity(e) {
     }
 }
 
-
+// uses the Openweather geoCode API to to convert location name input to lattitude and longitude.
+// passes lattitude and longitude values to getWeather function.
 function searchCity(city) {
     
     const geoCodeUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=3c714b351bd071d5137b8a8f12fed03e`;
@@ -110,6 +114,7 @@ function searchCity(city) {
     })
 }
 
+// inputs the lattitude and longitudethe to the Openweather weather API to retrieve weather info. 
 function getWeather(lattitude, longitude) {
     const weatherUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${lattitude}&lon=${longitude}&units=imperial&appid=3c714b351bd071d5137b8a8f12fed03e`;
 
@@ -123,7 +128,8 @@ function getWeather(lattitude, longitude) {
         }
       })
 }
-
+// gets weather info (icon, temo, wind, humidity of currend day).
+// appends info to page.
 function displayWeather(get) {
     let location = get.city.name;
     let date = (get.list[0].dt_txt).split(' ');
@@ -141,6 +147,10 @@ function displayWeather(get) {
     day0El.children[1].textContent = `Wind: ${Math.round(wind)} MPH`;
     day0El.children[2].textContent = `Humidity: ${humid} %`;
 
+    // gets weather info (icon, temo, wind, humidity of the next five days).
+    // appends info to page.
+    // gets info from the following arrays of the 40 arrays available.
+    // the arrays below are the start of the new day and updates over time.
     const resArr = [8, 16, 24, 32, 39];
 
     for (let i = 0; i < resArr.length; i++) {
@@ -154,9 +164,10 @@ function displayWeather(get) {
     }
 
 }
-
-displayCities(); // displays items from local storage.
-
+// runs the displayCities function and appends items from the local storage.
+displayCities();
+// provides input value to the geocode function, in order to retrieve and display weather info.
 searchBtnEl.addEventListener('click', inputCity);
+// clears all items saved in local storage, and removes appended items.
 clearBtnEl.addEventListener('click', clearCities);
 
