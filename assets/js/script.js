@@ -51,7 +51,6 @@ function displayCities() {
         for (let i = 0; i < savedCities.length; i++) {
             let newCity = document.createElement('li');
             newCity.classList.add('saved');
-            //newCity.setAttribute('data-index', i);
             newCity.textContent = savedCities[i];
             newCity.addEventListener('click', function() {
                 searchCity(savedCities[i]);
@@ -106,7 +105,7 @@ function searchCity(city) {
               
             })
         } else {
-            alert(`Error: ${response.statusText}`); // change later.
+            alert(`Error: ${response.statusText}`);
         }
     })
 }
@@ -138,8 +137,8 @@ function displayWeather(get) {
 
     todayEl.innerHTML = `${location} \u00A0\ ${newDate}`;
     todayEl2.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
-    day0El.children[0].textContent = `Temp: ${temp} °F`;
-    day0El.children[1].textContent = `Wind: ${wind} MPH`;
+    day0El.children[0].textContent = `Temp: ${Math.round(temp)} °F`;
+    day0El.children[1].textContent = `Wind: ${Math.round(wind)} MPH`;
     day0El.children[2].textContent = `Humidity: ${humid} %`;
 
     const resArr = [8, 16, 24, 32, 39];
@@ -148,8 +147,8 @@ function displayWeather(get) {
         let futureDate = (get.list[resArr[i]].dt_txt).split(' ')[0].split('-');
         daysArr[i].children[0].innerHTML = `${futureDate[1]}-${futureDate[2]}-${futureDate[0]}`;
         daysArr[i].children[1].src = `https://openweathermap.org/img/wn/${get.list[resArr[i]].weather[0].icon}@2x.png`;
-        daysArr[i].children[2].children[0].textContent = `Temp: ${get.list[resArr[i]].main.temp} °F`;
-        daysArr[i].children[2].children[1].textContent = `Wind: ${get.list[resArr[i]].wind.speed} MPH`;
+        daysArr[i].children[2].children[0].textContent = `Temp: ${Math.round(get.list[resArr[i]].main.temp)} °F`;
+        daysArr[i].children[2].children[1].textContent = `Wind: ${Math.round(get.list[resArr[i]].wind.speed)} MPH`;
         daysArr[i].children[2].children[2].textContent = `Humidity: ${get.list[resArr[i]].main.humidity} %`;
 
     }

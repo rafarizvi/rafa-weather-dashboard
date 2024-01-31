@@ -3,14 +3,17 @@
 }
 
 body {
+    max-width: 1380px;
+    margin: auto;
+    color: whitesmoke;
     background: rgb(0,171,205);
     background: radial-gradient(circle, rgba(0,171,205,1) 0%, rgba(15,72,158,1) 0%, rgba(136,93,89,1) 100%);
-    
-    color: whitesmoke
 }
+
 
 .header-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -24,21 +27,11 @@ body {
     margin: -11px;
 }
 
-.conainer-0 {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    /* flex-direction: column; */
-}
-
 form {
     display: flex;
-    flex-direction: column;
     text-align: center;
-    margin: 0 auto 0 auto;
-    padding-top: 5%;
+    padding-top: 2%;
     font-size: 24px;   
-    margin-left: 20px;
 }
 
 form label {
@@ -46,15 +39,16 @@ form label {
 }
 form input {
     height: 40px;
-    width: 300px;
-    margin: 10px;
+    width: 250px;
+    margin: 5px;
+    padding-left: 15px;
     font-size: 21px;
     border-radius: 18px;
 }
 
 form button {
     height: 35px;
-    width: 300px;
+    width: 200px;
     margin: 5px;
     font-size: 18px;
     border-radius: 18px;
@@ -65,50 +59,47 @@ form button {
     background-color: rgba(224, 54, 105, 0.619);
 }
 
-.list-div { 
-    height: 35px;
-    width: 300px;
-    margin-left: -9px;
-}
-
-
-
 form li {
-    font-size: 26px;
+    display: flex;
+    display: inline-flex;
+    margin-right: 5px;
+    font-size: 22px;
     font-style:inherit;
     margin-bottom: 5px;
-    padding-left: 10%;
-    height: 38px;
-    width: 296px;
+    padding-left: 2%;
+    height: 34px;
+    width: 200px;
     border: solid rgb(182, 182, 182) 3px;
     border-radius: 18px;
     background-color: rgba(31, 190, 187, 0.842);
     color: rgb(55, 55, 55);
 }
 
+form ul {
+    margin-left: -34px;
+}
 
-.container-1{
+.container-1 {
     display: flex;
-    border-right: solid rgb(226, 218, 132) 1px;
-    width: 380px;
-    height: 600px;
-    
+    flex-direction: column;
 }
 
 .today-container {
     display: flex;
+    align-items: center;
     justify-content: center;
-    padding-top: 3rem;
+
     border: solid rgb(182, 182, 182) 3px;
-    width: 500px;
-    height: 300px;
-    margin-left: 270px;
+    max-width: 1380px;
+    /* margin-left: 60px; */
+
     border-radius: 60px;
 }
 
 .today-container h4 {
     font-size: 20px;
     margin-bottom: 30px;
+    text-align: center;
 }
 
 .today-container img {
@@ -124,11 +115,9 @@ form li {
 
 .small-cards {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     padding-top: 1.3rem;
-    margin-left: 20px;
-    width: 1000px;
-    height: 300px;
 } 
 
 .small-card {
@@ -136,7 +125,8 @@ form li {
     width: 180px;
     height: 250px;
     text-align: center;
-    border-radius: 50px;  
+    border-radius: 50px; 
+    margin-bottom: 5px; 
 }
 
 .small-card h5 {
@@ -159,10 +149,7 @@ form li {
     scale: 70%;
 }
 
-ul {
-    text-align: left; 
-}
-
 li {
     display: flex;
 }
+
